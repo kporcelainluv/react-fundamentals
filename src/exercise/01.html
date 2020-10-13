@@ -1,16 +1,42 @@
 <!-- Basic JavaScript-rendered Hello World -->
 <!-- http://localhost:3000/isolated/exercise/01.html -->
 
-<!-- 🐨 Create (in HTML) a <body> with a <div> with the id of "root" -->
-<!-- 🐨 Then create a <script type="module"> for your JavaScript -->
+<!-- ðŸ¨ Create (in HTML) a <body> with a <div> with the id of "root" -->
+<!-- ðŸ¨ Then create a <script type="module"> for your JavaScript -->
 
 <!-- These next instructions are to be written in JavaScript in the <script> tag -->
-<!-- 🐨 Create a div -->
-<!--   💰 document.createElement('div') -->
+<!-- ðŸ¨ Create a div -->
+<!--   ðŸ’° document.createElement('div') -->
 
-<!-- 🐨 Set the div's textContent to 'Hello World' and className to 'container' -->
-<!--   💰 div.textContent = '...' -->
+<!-- ðŸ¨ Set the div's textContent to 'Hello World' and className to 'container' -->
+<!--   ðŸ’° div.textContent = '...' -->
 
-<!-- 🐨 Append the div to the root div using `append` -->
-<!--   💰 document.getElementById('root') -->
-<!--   📜 https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append -->
+<!-- ðŸ¨ Append the div to the root div using `append` -->
+<!--   ðŸ’° document.getElementById('root') -->
+<!--   ðŸ“œ https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello world</title>
+</head>
+<body>
+<div id="root"></div>
+<script type="module">
+  const root = document.getElementById('root');
+  const greeting = document.createElement('div');
+  greeting.classList.add('container');
+  greeting.innerHTML = 'Hello world';
+  root.append(greeting);
+
+  const root2 = document.createElement('div');
+  root2.classList.add('container');
+  root2.innerHTML = 'Hello world 2';
+  document.body.appendChild(root2);
+</script>
+</body>
+</html>
