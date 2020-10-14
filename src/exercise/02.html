@@ -3,26 +3,37 @@
 
 <body>
   <div id="root"></div>
+  <div id="root2"></div>
+  <div id="root3"></div>
 
-  <!-- 💣 remove this line
   <script src="https://unpkg.com/react@16.13.1/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js"></script>
-  💣 remove this line -->
+  
 
   <script type="module">
-    const rootElement = document.getElementById('root')
+    // Task 1 
+    const element = React.createElement('div', {className: 'container'}, 'hello world');
+    ReactDOM.render(element, document.getElementById('root'))
 
-    // You're going to re-implement this code using React!
-    // 💣 So go ahead and delete this implementation (or comment it out for now)
-    // These three lines are similar to React.createElement
-    const element = document.createElement('div')
-    element.textContent = 'Hello World' // 💰 in React, you set this with the "children" prop
-    element.className = 'container' // 💰 in React, this is also called the "className" prop
-    // This is similar to ReactDOM.render
-    rootElement.append(element)
+    // Task 2 nesting elements
+    
+    // that particular code has problems with unique keys
+    const element2 = React.createElement('div', 
+            {className: 'container'}, 
+          [ React.createElement('span', null, 'Hello '),
+            React.createElement('span', null, 'World '),
+          ]
+            );
+    ReactDOM.render(element2, document.getElementById('root2'))
 
-    // 🐨 Please re-implement the regular document.createElement code above
-    // with these React API calls
-    // 💰 The example in the markdown file should be a good hint for you.
+    // this code soesn't have problems with unique keys
+    const element3 = React.createElement('div',
+            {className: 'container'},
+            React.createElement('span', null, 'Hello '),
+            React.createElement('span', null, 'World ')
+    );
+    ReactDOM.render(element3, document.getElementById('root3'))
+
+
   </script>
 </body>
