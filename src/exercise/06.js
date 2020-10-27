@@ -35,23 +35,53 @@ function UsernameForm({onSubmitUsername}) {
 // }
 
   // 2
-//   const refContainer = React.useRef(null);
-//
-//   return (
-//     <form onSubmit={(a, b) => {
-//     window.alert(refContainer.current.value);
-//   }}>
-// <div>
-//   <label htmkFor="username">Username:</label>
-//   <input name="username" id="username" type="text" ref={refContainer}/>
-//   </div>
-//   <button type="submit">Submit</button>
-//     </form>
-// )
-// }
+  // const refContainer = React.useRef(null);
 
-  // 3
-  // return <div/>
+  // return (
+  //   <form onSubmit={(a, b) => {
+  //   window.alert(refContainer.current.value);
+  // }}>
+  //     <div>
+  //       <label htmlFor="username">Username:</label>
+  //       <input name="username" id="username" type="text" ref={refContainer}/>
+  //     </div>
+  //     <button type="submit">Submit</button>
+  //   </form>
+  // )
+
+  // 3 Validate lower-case
+  // const [error, setError] = React.useState(null);
+  //
+  // const handleChange = (e) => {
+  //   const value = e.target.value;
+  //   const isValid = value === value.toLowerCase();
+  //   setError(isValid ? null : 'Username must be lower case');
+  // };
+  //
+  // return (
+  //   <form>
+  //     <div>
+  //       {error && <div style={{background: 'red', color: 'white'}}>{error}</div>}
+  //       <label htmlFor="username">Username:</label>
+  //       <input name="username" id="username" type="text" onChange={handleChange}/>
+  //     </div>
+  //     <button disabled={error} type="submit">Submit</button>
+  //   </form>
+  // )
+  
+  // 4 Control the input value
+
+  const [text, setText] = React.useState('');
+
+  return (
+    <form>
+      <div>
+        <label htmlFor="username">Username:</label>
+        <input name="username" id="username" type="text" value={text} onChange={(e) => setText(e.target.value.toLowerCase())}/>
+      </div>
+      <button   type="submit">Submit</button>
+    </form>
+  )
 }
 
 function App() {
